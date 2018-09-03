@@ -1,0 +1,95 @@
+body {
+	/* background-image: url(../img/nyt-bg.jpg); */
+	background-image: url(../img/background1.jpg);
+	background-position: center;
+	/* font-family: 'Roboto', sans-serif; */
+	font-family: "Cormorant SC", sans-serif;
+}
+
+h1, h2, h3, h4 {
+	/* font-family: 'Roboto Slab', serif; */
+	font-family: 'Cormorant SC', serif;
+	color: rgb(0, 102, 255);
+}
+
+
+/* .btn-danger {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.btn-danger:hover {
+  background-color: #414141;
+  border-color: #585858;
+} */
+
+/* .panel-default>.panel-heading {
+  background-color: #6b6b6b;
+  color: #fff;
+} */
+.panel-default>.panel-heading {
+  background-color: rgb(0, 102, 255);
+  color: #fff;
+}
+
+/* .panel-default {
+  border-color: #3f3535;
+} */
+.panel-default {
+  border-color: darkgray;
+}
+
+/* .artLink {
+  color: #b97612;
+} */
+
+.saved-buttons {
+  margin-right: 1em;
+}
+
+.noteText {
+  color: black;
+}
+
+.delete-x {
+  color: red;
+}
+
+.modal-body{
+	/* background-image: url(../img/nyt-modal-img.jpg); */
+	background-image: url(../img/background1.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+/* .alert-warning {
+	color: #fff;
+	background-color: #000000;
+	border-color: #000000;
+} */
+.alert-warning {
+	color: #fff;
+	background-color: rgb(0, 102, 255);
+	border-color: rgb(0, 102, 255);
+}
+
+.main-img {
+	margin-bottom: 2em;
+	/* border-top: 2px solid #3f3535;
+	border-bottom: 2px solid #3f3535; */
+	border-top: 2px solid darkgray;
+	border-bottom: 2px solid darkgray;
+	
+	height: 100px;
+}
+
+/* .savedArt { */
+.saved-articles {
+	margin: 0 auto;
+	width: 80%;
+}
+
+#saved-msg{
+	color: rgb(0, 102, 255);
+	font-weight: bold;
+}
