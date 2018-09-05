@@ -12,7 +12,7 @@ It incorporates Mongoose and Cheerio to scrape the website
 Handlebars are used to generate the HTML.
 
 # Link to deployed project
-https://sequelizedburger199.herokuapp.com/
+https://git.heroku.com/mongoscraper199.git
 
 # Links to GitHub
 https://github.com/rmxjohnson/MongoNewsScraper.git

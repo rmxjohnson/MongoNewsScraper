@@ -37,6 +37,7 @@ var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines8";
 // Connect mongoose to the Mongo database
 mongoose.Promise = Promise;
 mongoose.connect(db, { useNewUrlParser: true });
+//mongoose.connect(db);
 
 // the below connection also works
 // mongoose.connect(db, function (error) {
