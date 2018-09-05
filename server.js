@@ -32,11 +32,11 @@ app.use(express.static(__dirname + "/public"));
 app.use(router);
 
 // If deployed, use the deployed database.  Otherwise use the local mongoHeadlines database
-var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines8";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines8";
 
 // Connect mongoose to the Mongo database
 mongoose.Promise = Promise;
-mongoose.connect(db, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 //mongoose.connect(db);
 
 // the below connection also works
