@@ -1,6 +1,7 @@
 # MongoNewsScraper
 
 Rhonda Johnson
+
 Week 18 assignment
 
 ## Overview
@@ -30,9 +31,9 @@ https://rmxjohnson.github.io/MongoNewsScraper/
 
 ![home.png](public/assets/img/home-page.png)
 
-## Saved Articles Page
+## "Saved" Articles Page
 
-![save.png](public/assets/img/saved-page.png)
+![saved.png](public/assets/img/saved-page.png)
 
 ## "Comment" modal associated with a saved article
 
@@ -46,3 +47,4 @@ https://rmxjohnson.github.io/MongoNewsScraper/
  * Comments are saved to the database and associated with their corresponding articles
  * Users can delete comments left on articles
  * All stored comments are visible to every user
+ * Users can select "Remove All Articles" to remove all article and comments from the database

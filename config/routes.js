@@ -28,6 +28,22 @@ module.exports = function (router) {
         })
     });
 
+    // delete all articles & notes
+    router.get("/remove", function (req, res) {
+        Article.remove({}, function (err, doc) {
+            if (err) {
+                console.log("Error removing all articles: ", err);
+            }
+
+            Note.remove({}, function (err, doc) {
+                if (err) {
+                    console.log("Error removing all notes: ", err);
+                }
+            });
+            res.redirect("/");
+        })
+    });
+
     // Router to render the saved articles
     router.get("/saved", function (req, res) {
         articlesController.get({ saved: true }, function (data) {

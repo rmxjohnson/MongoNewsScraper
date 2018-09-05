@@ -26,6 +26,19 @@ $(document).ready(function () {
         });
     });
 
+    $(".remove-articles").click(function (event) {
+        event.preventDefault();
+        $.get("/remove").then(function (data) {
+            // $(".articles").remove();
+            $.get("/").then(function () {
+                bootbox.alert("<h3 class='text-center m-top-80'>" + "All Articles Successfully Removed" +
+                    "</h3", function (result) {
+                        location.reload()
+                    });
+            });
+        });
+    });
+
     // move an article to the "saved articles" view
     $(".save-article").click(function (event) {
         event.preventDefault();
