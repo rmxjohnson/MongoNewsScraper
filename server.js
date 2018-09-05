@@ -1,4 +1,4 @@
-// Require our dependencies
+// required dependencies
 var express = require("express");
 var expressHandlebars = require("express-handlebars");
 var mongoose = require("mongoose");
@@ -18,7 +18,7 @@ var router = express.Router();
 // Require routes file to pass the router object
 require("./config/routes")(router);
 
-// connect Handlebars to our Express app
+// connect Handlebars to the Express app
 app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -31,23 +31,24 @@ app.use(express.static(__dirname + "/public"));
 // Have every request go through the router middleware
 app.use(router);
 
-// Connect to the Mongo DB
-//mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true });
+// If deployed, use the deployed database.  Otherwise use the local mongoHeadlines database
+var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines8";
 
-// If deployed, use the deployed databse.  Otherwise use the local mongoHeadlines database
-var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines7";
+// Connect mongoose to the Mongo database
+mongoose.Promise = Promise;
+mongoose.connect(db, { useNewUrlParser: true });
 
-// Connect mongoose to our database
-mongoose.connect(db, function (error) {
-    console.log("inside of mongoose connect");
-    //Log any errors connecting with mongoose
-    if (error) {
-        console.log(error);
-    }
-    else {
-        console.log("mongoose connection is successful");
-    }
-})
+// the below connection also works
+// mongoose.connect(db, function (error) {
+//     console.log("inside of mongoose connect");
+//     //Log any errors connecting with mongoose
+//     if (error) {
+//         console.log(error);
+//     }
+//     else {
+//         console.log("mongoose connection is successful");
+//     }
+// })
 
 // Start the server
 app.listen(PORT, function () {

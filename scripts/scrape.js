@@ -4,11 +4,11 @@
 var request = require("request");
 var cheerio = require("cheerio");
 
-// convert to date MM-DD-YYYY
+// convert to MM-DD-YYYY format
 var getToday = function () {
   var today = new Date();
   var dd = today.getDate();
-  var mm = today.getMonth() + 1; //January is 0!
+  var mm = today.getMonth() + 1; //January is 0
   var yyyy = today.getFullYear();
 
   if (dd < 10) {
@@ -28,9 +28,7 @@ var getToday = function () {
 var scrape = function (callback) {
 
   request("http://www.nytimes.com", function (error, response, html) {
-    console.log("inside of scrape");
     var $ = cheerio.load(html);
-    //console.log(html);
 
     // An empty array to save the scraped data 
     var articleArr = [];

@@ -61,6 +61,10 @@ $(document).ready(function () {
         event.preventDefault();
         var currentId = $(this).attr("data-value");
 
+        var tempTitle = $(this).closest(".panel-title").text();
+        console.log("current id = ", currentId);
+        console.log("closest title = ", tempTitle);
+
         $("#saveButton").attr({ "data-value": currentId });
 
         $.get("/notes/" + currentId, function (data) {
@@ -100,7 +104,7 @@ $(document).ready(function () {
                     body: $("#notestext").val().trim()
                 }
             }).done(function (data) {
-                console.log(data);
+                //console.log(data);
                 $("noteModal").modal("hide");
             });
         }

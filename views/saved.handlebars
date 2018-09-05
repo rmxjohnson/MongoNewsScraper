@@ -1,3 +1,4 @@
+{{!-- display all saved articles --}}
 <h1 id="saved-msg" class="text-center">Saved Articles</h1>
 <div class="articles saved-articles">
     <ul>
@@ -20,47 +21,34 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        {{!--
-                        <h4 class="modal-title" id=""> --}}
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: right">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="">
-                                <b>Notes for article #</b>
-                                <b id="article-for-note"></b>
-                            </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="float: right">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="">
+                            <b>Comments for article # </b>
+                            <b id="article-for-note"></b>
+                            <br>
+                            <b>{{title}}</b>
 
-                            {{!--
-                            <div>
-                                <ul id="notesBody">
-                                </ul>
-                            </div> --}}
-
+                        </h4>
                     </div>
+
                     <div class="modal-body">
                         <div class="form-group">
-
-                            <label for="exampleTextarea">Enter New Note</label>
-                            <button data-id={{_id}} data-dismiss="modal" id="saveButton" class="btn btn-primary savenote pull-right">Save Note</button>
-                            <textarea class="form-control" id="notestext" rows="3"></textarea> {{!--
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}} {{!--
-                            <button data-id={{_id}} data-dismiss="modal" id="saveButton" class="btn btn-primary savenote pull-right">Save Note</button> --}}
+                            <label for="exampleTextarea">Enter New Comment</label>
+                            <button data-id={{_id}} data-dismiss="modal" id="saveButton" class="btn btn-primary savenote pull-right">Save Comment</button>
+                            <textarea class="form-control" id="notestext" rows="3"></textarea>
                         </div>
                         <hr>
                         <div>
                             <ul id="notesBody">
                             </ul>
                         </div>
-                        {{!--
-                        <div>
-                            <!--savednotes-->
-                        </div> --}}
                     </div>
                     <div class="modal-footer">
 
                         <button type="button" class="btn btn-secondary pull-right" data-dismiss="modal">Close</button>
-                        {{!--
-                        <button data-id={{_id}} data-dismiss="modal" id="saveButton" class="btn btn-primary savenote">Save Note</button> --}}
+
                     </div>
                 </div>
             </div>

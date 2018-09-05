@@ -1,5 +1,6 @@
+{{!-- display articles on the home page --}}
 <div class="articles container">
-    {{#each articles}}
+    {{!-- for each article: display the date, title, link, and a "Save" button --}} {{#each articles}}
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">{{date}} {{title}}</h3>
@@ -14,5 +15,4 @@
 
     <br />
     <br /> {{/each}}
-    <!-- HERE -->
 </div>

@@ -1,6 +1,6 @@
 // Server routes
 
-// include scrape function
+// dependencies
 var scrape = require("../scripts/scrape");
 var Article = require("../models/Article");
 var Note = require("../models/Note");
@@ -14,7 +14,7 @@ module.exports = function (router) {
     router.get("/", function (req, res) {
         Article.find({ saved: false }).sort({ _id: -1 }).exec(function (err, data) {
             if (err) {
-                console.log(err);
+                console.log("Error rendering home page: ", err);
             }
             else if (data.length === 0) {
                 res.render("noheadlines");
@@ -44,20 +44,43 @@ module.exports = function (router) {
         });
     });
 
-    // scrape NY Times
+    // scrape NY Times website for articles
     router.get("/api/fetch", function (req, res) {
+        var beforeCount = 99;
+        var afterCount = 99;
+
+        // count the # of articles in the collection before the scrape
+        Article.find().exec(function (err, results) {
+            if (results) {
+                beforeCount = results.length;
+                console.log("# of articles before the scrape = ", beforeCount);
+            };
+        });
+
         articlesController.fetch(function (err, docs) {
 
-            if (!docs || docs.insertedCount === 0) {
-                res.json({
-                    message: "No new articles to add at this time.  Check back later!"
-                });
-            }
-            else {
-                res.json({
-                    message: "Added " + docs.insertedCount + " new articles!"
-                });
-            }
+            // count the # of articles in the collection after the scrape
+            Article.find().exec(function (err, results) {
+                if (results) {
+                    afterCount = results.length;
+                };
+                console.log("# of articles after the scrape =", afterCount);
+
+                // calculate the difference to determine # of articles added with the scrape
+                var countDifference = afterCount - beforeCount;
+                console.log("# of articles added = ", countDifference);
+
+                if (countDifference == 0) {
+                    res.json({
+                        message: "No new articles to add at this time.  Check back later!"
+                    });
+                }
+                else {
+                    res.json({
+                        message: "Added " + countDifference + " new articles!"
+                    });
+                }
+            });
         });
     });
 
@@ -75,7 +98,7 @@ module.exports = function (router) {
             .populate("note")
             .exec(function (err, doc) {
                 if (err) {
-                    console.log(err);
+                    console.log("Error finding notes: ", err);
                 }
                 else {
                     res.json(doc);
@@ -83,17 +106,18 @@ module.exports = function (router) {
             });
     });
 
-    // delete a note from it's corresponding article 
+    // delete a note from its corresponding article 
     router.get("/deletenote/:id", function (req, res) {
         Note.remove({ "_id": req.params.id }, function (err, doc) {
             if (err) {
-                console.log(err);
+                console.log("Error deleting notes: ", err);
             }
             res.redirect("/saved");
         })
     });
 
-    // create a new note; update the Article collection by adding the new note's id to the corresponding article
+    // create a new note; update the Article collection by adding the new note's id 
+    // to the corresponding article's notes array
     router.post("/notes/:id", function (req, res) {
         var newNote = new Note(req.body);
         console.log("newnote = ", newNote);
@@ -106,11 +130,10 @@ module.exports = function (router) {
                 { new: true },
                 function (err2, doc2) {
                     if (err2) {
-                        console.log(err);
+                        console.log(" Error updating article with note id: ", err);
                     }
                     res.send(doc2);
                 });
         });
     });
-
 }
