@@ -35,7 +35,7 @@ app.use(router);
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines8";
 
 // Connect mongoose to the Mongo database
-mongoose.Promise = Promise;
+//mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 //mongoose.connect(db);
 
