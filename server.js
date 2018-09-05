@@ -36,7 +36,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 
 // Connect mongoose to the Mongo database
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true }).catch(error => { console.log(error) });
 //mongoose.connect(db);
 
 // the below connection also works
