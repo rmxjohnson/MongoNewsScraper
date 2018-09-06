@@ -12,7 +12,7 @@ It incorporates Mongoose and Cheerio to scrape the website
 Handlebars are used to generate the HTML.
 
 # Link to deployed project
-https://git.heroku.com/mongoscraper199.git
+https://mongoscraper199.herokuapp.com/
 
 # Links to GitHub
 https://github.com/rmxjohnson/MongoNewsScraper.git
@@ -29,15 +29,15 @@ https://rmxjohnson.github.io/MongoNewsScraper/
 
 ## Home Page
 
-![home.png](public/assets/img/home-page.png)
+![home.png](public/assets/img/home-page2.png)
 
 ## "Saved" Articles Page
 
-![saved.png](public/assets/img/saved-page.png)
+![saved.png](public/assets/img/saved-page2.png)
 
 ## "Comment" modal associated with a saved article
 
-![notes.png](public/assets/img/notes-modal.png)
+![notes.png](public/assets/img/notes-modal2.png)
 
 
 
