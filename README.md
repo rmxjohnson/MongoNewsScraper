@@ -29,15 +29,15 @@ https://rmxjohnson.github.io/MongoNewsScraper/
 
 ## Home Page
 
-![home.png](public/assets/img/home-page2.png)
+![home.png](public/assets/img/home-page.png)
 
 ## "Saved" Articles Page
 
-![saved.png](public/assets/img/saved-page2.png)
+![saved.png](public/assets/img/saved-page.png)
 
 ## "Comment" modal associated with a saved article
 
-![notes.png](public/assets/img/notes-modal2.png)
+![notes.png](public/assets/img/comment-modal.png)
 
 
 

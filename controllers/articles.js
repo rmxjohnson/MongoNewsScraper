@@ -13,7 +13,8 @@ module.exports = {
                 articlesArr[i].note = [];
             }
 
-            // insert new articles - ordered: false - to prevent duplicated
+            // insert new articles - no duplicate titles 
+            // ordered: false - continue inserting when duplicates are encountered
             Article.collection.insertMany(articlesArr, { ordered: false }, function (err, docs) {
                 callback(err, docs);
             });

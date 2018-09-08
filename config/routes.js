@@ -136,9 +136,9 @@ module.exports = function (router) {
     // to the corresponding article's notes array
     router.post("/notes/:id", function (req, res) {
         var newNote = new Note(req.body);
-        console.log("newnote = ", newNote);
-        console.log("newNote id = ", newNote._id);
-        console.log("article id = ", req.params.id);
+        // console.log("newnote = ", newNote);
+        // console.log("newNote id = ", newNote._id);
+        // console.log("article id = ", req.params.id);
         newNote.save(function (err, doc) {
             Article.findOneAndUpdate(
                 { _id: req.params.id },
@@ -148,6 +148,7 @@ module.exports = function (router) {
                     if (err2) {
                         console.log(" Error updating article with note id: ", err);
                     }
+                    //console.log("Doc when adding a note", doc2);
                     res.send(doc2);
                 });
         });

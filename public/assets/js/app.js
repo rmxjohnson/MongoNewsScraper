@@ -26,6 +26,7 @@ $(document).ready(function () {
         });
     });
 
+    // route to remove all articles & associated comments from the collection
     $(".remove-articles").click(function (event) {
         event.preventDefault();
         $.get("/remove").then(function (data) {
@@ -73,10 +74,10 @@ $(document).ready(function () {
     $(".saved-buttons").on("click", function () {
         event.preventDefault();
         var currentId = $(this).attr("data-value");
+        var currentTitle = $(this).attr("data-title");
 
-        var tempTitle = $(this).closest(".panel-title").text();
-        console.log("current id = ", currentId);
-        console.log("closest title = ", tempTitle);
+        // console.log("current article id = ", currentId);
+        // console.log("current artitle title = ", currentTitle);
 
         $("#saveButton").attr({ "data-value": currentId });
 
@@ -87,9 +88,12 @@ $(document).ready(function () {
             $("#notesBody").empty();
             $("#notestext").val("");
             $("#article-for-note").empty();
+            $("bold-title").empty();
 
             $("#article-for-note").append(" " + currentId);
             $("noteModalLabel").append(" " + currentId);
+            $("#bold-title").text(currentTitle);
+
             // add all notes to the body of of the modal
             for (var i = 0; i < data.note.length; i++) {
                 var button = '<a href=/deleteNote/' + data.note[i]._id +
